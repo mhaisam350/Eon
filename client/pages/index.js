@@ -1,7 +1,12 @@
 import Head from 'next/head';
+
+import { client } from '../lib/shopify';
+
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export default function Home({ products }) {
+
+  console.log(products);
 
   return (
 
@@ -22,3 +27,15 @@ export default function Home() {
   )
   
 }
+
+export const getStaticProps = async () => {
+
+  const products = await client.product.fetchAll();
+
+  return {
+    props: {
+      products: JSON.parse(JSON.stringify(products)),
+    }
+  };
+
+};
