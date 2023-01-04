@@ -1,12 +1,13 @@
 import Head from 'next/head';
 
 import { client } from '../lib/shopify';
-
 import styles from '../styles/Home.module.css';
+
+import Header from '../components/Header';
 
 export default function Home({ products }) {
 
-  console.log(products);
+  // console.log(products);
 
   return (
 
@@ -16,9 +17,11 @@ export default function Home({ products }) {
         <title>Eon</title>
       </Head>
 
+      <Header />
+
       <main>
 
-        <h1>Shop</h1>
+        {/* <h1>Shop</h1> */}
 
       </main>
 
