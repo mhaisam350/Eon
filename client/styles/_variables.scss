@@ -8,3 +8,14 @@ $center-width-xlg: 1300px;
 $center-width-lg: 1000px;
 $center-width-md: 853px;
 $center-width-sm: 85%;
+
+$hero-btn-padding: 1em 3.5em;
+$regular-btn-padding: 0.5em 1em;
+
+
+%button {
+    background-color: #F6F6F6;
+    color: #000;
+    font-weight: 600;
+    border-radius: 5px;
+}
