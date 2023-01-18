@@ -1,0 +1,22 @@
+@import './variables';
+
+.product-container {
+    grid-column: 1fr;
+}
+
+.image-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+}
+
+.text-container {
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 1.2em;
+}
+
+.product-price {
+    margin-top: 1em;;
+}

@@ -1,0 +1,37 @@
+@import './variables';
+
+.subcategory-container {
+    margin: 5em 0;
+}
+
+.subcategory-heading {
+    font-size: 1.8em;
+}
+
+.products-container {
+    margin: 2.5em 0;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20vh;
+    column-gap: 3%;
+}
+
+@media (min-width: 800px) {
+
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 50px;
+        column-gap: 3%;
+    }
+
+}
+
+@media (min-width: 1050px) {
+
+    .products-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        column-gap: 5%;
+    }
+
+}
+

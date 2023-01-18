@@ -1,44 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSquareXmark, faCaretDown, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSquareXmark, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '../styles/Header.module.scss';
 
 const Header = () => {
 
     const [toggleMobileNav, setMobileToggleNav] = useState(false);
-    // const [toggleDropdown, setToggleDropdown] = useState(false);
-    const [background, setBackground] = useState(false);
 
     const navToggleClass = toggleMobileNav ? styles['nav-show'] : styles['nav-hide'];
-    // const dropdownToggleClass = toggleDropdown ? styles['dropdown-show'] : styles['dropdown-hide'];
-    const backgroundClass = background ? styles['header-background'] : styles['header-transparent'];
 
     const router = useRouter();
 
-    const changeBackground = () => {
-
-        if (window.scrollY >= 5) {
-            setBackground(true);
-        } else {
-            setBackground(false);
-        };
-        
-
-    }
-
-    useEffect(() => {
-
-        window.addEventListener("scroll", changeBackground);
-
-    });
-
   return (
 
-    <header className={styles['header'] + " " + backgroundClass}>
+    <header className={styles['header']}>
 
         <nav className={'flex' + " " + styles['nav']}>
 
@@ -56,15 +35,15 @@ const Header = () => {
                 </li> */}
 
                 <li>
-                    <Link href='/' className={styles['header-link'] + " " + (router.pathname === '/shop' ? styles['active'] : '')}>Accessories</Link>
+                    <Link href='/categories/bike-accessories' className={styles['header-link'] + " " + (router.pathname === '/shop' ? styles['active'] : '')}>Accessories</Link>
                 </li>
 
                 <li>
-                    <Link href='/' className={styles['header-link'] + " " + (router.pathname === '/shop' ? styles['active'] : '')}>Apparel</Link>
+                    <Link href='/categories/apparel' className={styles['header-link'] + " " + (router.pathname === '/shop' ? styles['active'] : '')}>Apparel</Link>
                 </li>
 
                 <li>
-                    <Link href='/' className={styles['header-link'] + " " + (router.pathname === '/shop' ? styles['active'] : '')}>Lifestyle</Link>
+                    <Link href='/categories/lifestyle' className={styles['header-link'] + " " + (router.pathname === '/shop' ? styles['active'] : '')}>Lifestyle</Link>
                 </li>
 
             </menu>

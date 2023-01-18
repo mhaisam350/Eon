@@ -6,28 +6,25 @@
     width: 100%;
     font-size: 1em;
     z-index: 999;
-
-    &:hover {
-        background-color: #fff;
-        color: #000;
-    }
-}
-
-.header-background {
-    background-color: #fff;
-    color: #000;
-    transition: background-color 200ms;
-    box-shadow:
-    0 2.8px 2.2px rgba(139, 139, 139, 0.034),
-    0 6.7px 5.3px rgba(139, 139, 139, 0.048),
-    0 12.5px 10px rgba(139, 139, 139, 0.06);
-}
-
-.header-transparent {
-    background: transparent;
+    background: #000;
     color: #fff;
-    transition: background-color 200ms;
 }
+
+// .header-background {
+//     background-color: #fff;
+//     color: #000;
+//     transition: background-color 200ms;
+//     box-shadow:
+//     0 2.8px 2.2px rgba(139, 139, 139, 0.034),
+//     0 6.7px 5.3px rgba(139, 139, 139, 0.048),
+//     0 12.5px 10px rgba(139, 139, 139, 0.06);
+// }
+
+// .header-transparent {
+//     background: transparent;
+//     color: #fff;
+//     transition: background-color 200ms;
+// }
 
 .nav {
     margin: 0.8em auto;

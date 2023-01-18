@@ -1,0 +1,11 @@
+@import './variables';
+
+.subcategories-container {
+    margin: $vertical-margin auto;
+    max-width: 90%;
+}
+
+.category-heading {
+    font-size: 2em;
+    font-weight: 600;
+}
