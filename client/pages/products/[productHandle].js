@@ -1,49 +1,146 @@
+import { useState, useEffect } from 'react';
+
 import Head from 'next/head';
 import Image from 'next/image';
 
 import styles from '../../styles/ProductPage.module.scss';
 
 import Header from '../../components/Header';
+import OptionsForm from '../../components/OptionsForm';
+import QuantityForm from '../../components/QuantityForm';
 import Footer from '../../components/Footer';
 
-import { client } from '../../lib/shopify';
+import { storefront } from '../../utils';
 
 import { formatParam } from '../../utils';
 
 export default function ProductPage( { product } ) {
 
-    console.log(product);
+    // console.log(product);
 
-    // const { id, title } = product;
-    // const productImages = product.images;
+    const { title, description, images, variants, options } = product;
+
+    const variantOptions = variants.edges?.map(variant => {
+
+        const variantOptions = {};
+
+        variant.node.selectedOptions.map(item => {
+            variantOptions[item.name] = item.value;
+        });
+
+        return ({
+            id: variant.node.id,
+            title: product.title,
+            options: variantOptions,
+            variantTitle: variant.node.title,
+            variantImage: variant.node.image.url,
+            variantPrice: variant.node.priceV2.amount,
+            variantQuantity: variant.node.quantityAvailable
+        });
+
+    });
+
+    const defaultValues = {};
+
+    options.map(item => {
+
+        defaultValues[item.name] = item.values[0];
+
+    });
+
+    const [selectedVariant, setSelectedVariant] = useState(variantOptions[0].id);
+    const [selectedOptions, setSelectedOptions] = useState(defaultValues);
+    const [quantityAvailable, setQuantityAvailable] = useState(variantOptions[0].variantQuantity);
+    const [quantity, setQuantity] = useState(1);
+
+    function optionsSet(name, value) {
+
+        setSelectedOptions(prevState => {
+            return { ...prevState, [name]: value};
+        });
+
+    };
+
+    function quantitySet(quantity) {
+
+        setQuantity(quantity);
+
+    };
+
+    useEffect(() => {
+
+        let matchingVariant = variantOptions.filter(variant => JSON.stringify(Object.values(variant.options)) === JSON.stringify(Object.values(selectedOptions)));
+
+        setSelectedVariant(matchingVariant[0].id);
+        setQuantityAvailable(matchingVariant[0].variantQuantity);
+
+    }, [selectedOptions]);
+
+    // console.log(variantOptions);
 
     return (
 
         <>
         
             <Head>
-                {/* <title>{ `${title} | Eon` }</title> */}
+                <title>{ `${title} | Eon` }</title>
             </Head>
 
             <Header />
 
-            {/* <section className={'grid' + " " + styles['product-container']}>
+            <section className={'grid' + " " + styles['product-container']}>
 
                 <div className={styles['product-image-container']}>
-                    <Image src={productImages[0].src} alt={title} fill style={{objectFit: 'cover'}} />
+
+                    <Image src={images.edges[0].node.url} alt={ title } fill style={{objectFit: 'cover'}} />
+                
                 </div>
 
                 <div className={styles['product-content']}>
 
-                    <h1 className={styles['product-name']}>{title}</h1>
+                    <h1 className={styles['product-name']}>{ title }</h1>
                     
                     <h2 className={styles['product-price']}>123</h2>
 
+                    {
+
+                        options.map( ( { name, values } ) => (
+
+                            <OptionsForm key={`key-${name}`} name={name} values={values} selectedOptions={selectedOptions} optionsSet={optionsSet} quantitySet={quantitySet} />
+
+                        ))
+
+                    }
+
+                        
+                    {quantityAvailable > 0 ? (
+
+                        <>
+                        
+                            <QuantityForm quantity={quantity} maxQuantity={quantityAvailable} quantitySet={quantitySet} />
+
+                            <div>
+
+                                <button>Add to Cart</button>
+
+                                <button>Buy Now</button>
+
+                            </div>
+
+                        </>
+
+                    ) : (
+
+                        <button disabled>Out of stock</button>
+
+                    )}
+
+                    <p>{ description }</p>
 
 
                 </div>
 
-            </section> */}
+            </section>
 
             <Footer />
         
@@ -57,71 +154,72 @@ export const getServerSideProps = async ( { params } ) => {
 
     const { productHandle } = params;
 
-    const product = await client.product.fetchByHandle(productHandle);
+    const { data } = await storefront(singleProductQuery, { handle: productHandle } );
+
+    // console.log(data);
 
     return {
         props: {
-            product: JSON.parse(JSON.stringify(product)),
+            product: data.product,
         },
     };
 
 }
 
+const singleProductQuery = `
+    query SingleProduct($handle: String!) {
+        product(handle: $handle) {
+        id
+        title
+        description
+        totalInventory
+        priceRange {
+            minVariantPrice {
+            amount
+            currencyCode
+            }
+        }
+        images(first: 3) {
+            edges {
+            node {
+                url(transform: {maxWidth: 600})
+            }
+            }
+        }
+        options(first: 20) {
+            id
+            name
+            values
+        }
+        variants(first: 20) {
+            edges {
+            node {
+                id
+                title
+                quantityAvailable
+                image {
+                    url(transform: {maxWidth: 600})
+                altText
+                    }
+                selectedOptions {
+                name
+                value
+                }
+                priceV2 {
+                amount
+                currencyCode
+                }
+            }
+            }
+        }
+        }
+    }`;
+
 // export const getServerSideProps = async ( { params } ) => {
 
 //     const { productHandle } = params;
 
-//     const productQuery = client.graphQLClient.query((root) => {
-        
-//         root.addConnection('productByHandle', { args: { handle: productHandle } }, (product) => {
-
-//             product.add('id');
-//             product.add('title');
-//             product.add('description');
-
-//             product.addConnection('variants', { args: { first: 10 } }, (variant) => {
-
-//                 variant.add('id');
-//                 variant.add('title');
-//                 variant.add('quantityAvailable');
-
-//                 variant.addConnection('selectedOptions', (options) => {
-
-//                     options.add('name');
-//                     options.add('value');
-
-//                 });
-
-//                 variant.addConnection('priceV2', (price) => {
-
-//                     price.add('amount');
-//                     price.add('countryCode');
-
-//                 });
-
-//             });
-
-//             product.addConnection('options', { args: { first: 10 } }, (option) => {
-
-//                 option.add('id');
-//                 option.add('name');
-//                 option.add('values');
-
-//             });
-
-//             product.addConnection('images', { args: { first: 5 } }, (image) => {
-
-//                 image.add('url');
-
-//             });
-
-//         });
-
-//     });
-
-//     const product = await client.graphQLClient.send(productQuery);
-
-//     console.log(product);
+//     const product = await client.product.fetchByHandle(productHandle);
 
 //     return {
 //         props: {
@@ -129,61 +227,4 @@ export const getServerSideProps = async ( { params } ) => {
 //         },
 //     };
 
-
-
-// const singleProductQuery = `
-// query SingleProduct($handle: String!){
-//     product(handle: $handle) {
-//       id
-//       title
-//       description
-//       totalInventory
-//       priceRange{
-//         minVariantPrice{
-//           amount
-//           currencyCode
-//         }
-//       }
-//       images(first: 5){
-//         edges {
-//           node {
-//             url(transform: {
-//                 maxWidth: 900
-//             })
-//             altText 
-//           }
-//         }
-//       }
-//       options(first: 10) {
-//         id
-//         name
-//         values
-//       }
-//       variants(first: 10) {
-//         edges {
-//           node {
-//             id
-//             title
-//             quantityAvailable
-//             image {
-//                 url(transform: {maxWidth: 600})
-//                 altText
-//             }
-//             product {
-//                 title
-//                 handle
-//               }
-//             selectedOptions {
-//                 name
-//                 value
-//               }
-//             priceV2{
-//               amount
-//               currencyCode
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+// }
