@@ -22,7 +22,7 @@ export default function DisplayProduct( { product } ) {
 
                 <div className={styles['image-container']} style={ {backgroundImage: hover ? `url("${product?.images[1].src}")` : `url("${product?.images[0].src}")`} }></div>
 
-                <div className={styles['text-container']}>
+                <div className={'flex' + " " + styles['text-container']}>
 
                     <h3 className={styles['product-name']}>{ product.title }</h3>
 

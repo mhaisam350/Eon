@@ -34,7 +34,7 @@ export default function CategoryPage({ products, categoryName }) {
         <>
 
             <Head>
-                <title>{ category + " " + '| Eon' }</title>
+                <title>{ `${category} | Eon` }</title>
             </Head>
 
             <Header />
@@ -63,7 +63,7 @@ export default function CategoryPage({ products, categoryName }) {
 
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getServerSideProps = async ( { params } ) => {
 
     const { categoryName } = params;
 

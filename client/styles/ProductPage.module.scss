@@ -1,0 +1,17 @@
+@import './variables';
+
+.product-container {
+    height: 100vh;
+    margin: $vertical-margin 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+}
+
+.product-image-container {
+    position: relative;
+    grid-column: 1 / 3;
+}
+
+.product-text {
+    grid-column: 3 / 4;
+}

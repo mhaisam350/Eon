@@ -2,6 +2,12 @@
 
 .product-container {
     grid-column: 1fr;
+
+    &:hover .text-container {
+        background-color: #000;
+        color: #fff;
+        transition: 0.1s ease-in;
+    }
 }
 
 .image-container {
@@ -12,11 +18,9 @@
 }
 
 .text-container {
-    text-align: center;
-    margin-top: 1.5em;
+    padding: 1em ;
     font-size: 1.2em;
-}
-
-.product-price {
-    margin-top: 1em;;
+    font-weight: 600;
+    justify-content: space-between;
+    align-items: center;
 }
