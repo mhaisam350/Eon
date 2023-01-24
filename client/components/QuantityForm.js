@@ -24,13 +24,14 @@ export default function QuantityForm( { quantity, maxQuantity, quantitySet } ) {
 
     return (
 
-        <fieldset>
+        <fieldset className={styles.fieldset}>
 
-            <legend>
+            <legend className={styles.legend}>Quantity</legend>
 
-                <button onClick={decrement}>-</button>
+                <button className={styles['quantity-btn']} onClick={decrement}>-</button>
                 
                 <input
+                    className={styles.input}
                     type='number'
                     placeholder='Quantity'
                     value={quantity}
@@ -39,9 +40,7 @@ export default function QuantityForm( { quantity, maxQuantity, quantitySet } ) {
                     readOnly
                 />
                 
-                <button onClick={increment}>+</button>
-
-            </legend>
+                <button className={styles['quantity-btn']} onClick={increment}>+</button>
 
         </fieldset>
 

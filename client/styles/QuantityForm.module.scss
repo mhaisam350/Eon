@@ -1,0 +1,31 @@
+.fieldset {
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.legend {
+    margin: 25px 0; 
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.input {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    width: 5%;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.quantity-btn {
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 1.2em;
+    padding: 0 20px;
+    cursor: pointer;
+}

@@ -8,7 +8,7 @@ export default function OptionsForm ({ name, values, selectedOptions, optionsSet
 
         <fieldset>
 
-            <legend>{ name }</legend>
+            <legend className={styles.legend}>{ name }</legend>
 
             {
 
@@ -19,7 +19,7 @@ export default function OptionsForm ({ name, values, selectedOptions, optionsSet
 
                     return (
 
-                        <label key={id}>
+                        <label key={id} className={styles['radio-label']}>
 
                             <input
                                 type='radio'
@@ -32,6 +32,14 @@ export default function OptionsForm ({ name, values, selectedOptions, optionsSet
                                 }}
                             />
 
+                            <span 
+                                className= {styles['radio-btn'] + " " + (name === 'Color' ? styles['height'] : "") }
+                                style={ name === 'Color' ? {backgroundColor: value} : {} }>
+                                
+                                { name === 'Color' ? "" : value }
+
+                            </span>
+                            
                         </label>
 
                     )

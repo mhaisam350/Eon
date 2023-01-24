@@ -12,13 +12,17 @@ import Footer from '../../components/Footer';
 
 import { storefront } from '../../utils';
 
-import { formatParam } from '../../utils';
+import { formatPrice } from '../../utils';
 
 export default function ProductPage( { product } ) {
 
     // console.log(product);
 
-    const { title, description, images, variants, options } = product;
+    const { title, description, priceRange, images, variants, options } = product;
+
+    const { amount } = priceRange.minVariantPrice;
+
+    // console.log(amount);
 
     const variantOptions = variants.edges?.map(variant => {
 
@@ -100,7 +104,7 @@ export default function ProductPage( { product } ) {
 
                     <h1 className={styles['product-name']}>{ title }</h1>
                     
-                    <h2 className={styles['product-price']}>123</h2>
+                    <h2 className={styles['product-price']}>{ formatPrice(amount) }</h2>
 
                     {
 
@@ -119,11 +123,11 @@ export default function ProductPage( { product } ) {
                         
                             <QuantityForm quantity={quantity} maxQuantity={quantityAvailable} quantitySet={quantitySet} />
 
-                            <div>
+                            <div className={'flex' + " " + styles['purchase-container']}>
 
-                                <button>Add to Cart</button>
+                                <button className={styles['product-btn']} id={styles['add-to-cart-btn']}>Add to Cart</button>
 
-                                <button>Buy Now</button>
+                                <button className={styles['product-btn']} id={styles['buy-now-btn']}>Buy Now</button>
 
                             </div>
 
@@ -131,12 +135,17 @@ export default function ProductPage( { product } ) {
 
                     ) : (
 
-                        <button disabled>Out of stock</button>
+                        <button disabled className={styles['product-btn']} id={styles['out-of-stock-btn']}>Out of stock</button>
 
                     )}
 
-                    <p>{ description }</p>
+                    <article className={styles['description-container']}>
 
+                        <h3 className={styles['description-heading']}>Description</h3>
+
+                        <p className={styles['product-description']}>{ description }</p>
+
+                    </article>
 
                 </div>
 
