@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
 import Head from 'next/head';
-import Image from 'next/image';
 
 import styles from '../../styles/ProductPage.module.scss';
 
 import Header from '../../components/Header';
+import EmblaCarousel from '../../components/EmblaCarousel';
 import OptionsForm from '../../components/OptionsForm';
 import QuantityForm from '../../components/QuantityForm';
 import Footer from '../../components/Footer';
@@ -22,7 +22,9 @@ export default function ProductPage( { product } ) {
 
     const { amount } = priceRange.minVariantPrice;
 
-    // console.log(amount);
+    const { edges } = images;
+
+    const emblaOptions = { loop: true };
 
     const variantOptions = variants.edges?.map(variant => {
 
@@ -96,7 +98,7 @@ export default function ProductPage( { product } ) {
 
                 <div className={styles['product-image-container']}>
 
-                    <Image src={images.edges[0].node.url} alt={ title } fill style={{objectFit: 'cover'}} />
+                    <EmblaCarousel slides={edges} options={emblaOptions} />
                 
                 </div>
 
@@ -115,7 +117,6 @@ export default function ProductPage( { product } ) {
                         ))
 
                     }
-
                         
                     {quantityAvailable > 0 ? (
 
