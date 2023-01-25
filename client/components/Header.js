@@ -1,9 +1,13 @@
 import { useState} from 'react';
+
 import { useRouter } from 'next/router';
+
 import Link from 'next/link';
 
+import Sidebar from './Sidebar';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faSquareXmark, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '../styles/Header.module.scss';
 
@@ -27,13 +31,6 @@ const Header = () => {
 
             <menu className={'flex' + " " + styles['header-menu'] + " " + navToggleClass}>
 
-                {/* <li onClick={ () => setToggleDropdown(!toggleDropdown)} className={styles['dropdown-parent']} >
-                    <span className={styles['dropdown-parent-text']}>Products <FontAwesomeIcon icon={faCaretDown} /></span>
-                    <menu className={styles['dropdown-menu'] + " " + dropdownToggleClass}>
-                        <li className={styles['dropdown-item']}><Link href='/'className={styles['dropdown-link']}>Eon UI</Link></li>
-                    </menu>
-                </li> */}
-
                 <li>
                     <Link href='/categories/bike-accessories' className={styles['header-link'] + " " + (router.pathname === '/shop' ? styles['active'] : '')}>Accessories</Link>
                 </li>
@@ -49,8 +46,9 @@ const Header = () => {
             </menu>
 
             <div className={'flex' + " " + styles['icon-container']}>
-
-                <button className={styles['header-icon']}><FontAwesomeIcon icon={faCartShopping} /></button>
+                
+                <Sidebar />
+                
                 <button onClick={ () => setMobileToggleNav(!toggleMobileNav)} className={styles['mobile-toggle'] + " " + styles['header-icon']}><FontAwesomeIcon icon={toggleMobileNav ? faSquareXmark : faBars} /></button>
 
             </div>

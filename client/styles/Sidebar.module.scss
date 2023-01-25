@@ -1,0 +1,51 @@
+.icon {
+    z-index: 9997;
+    position: relative;
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icon-light {
+  color: rgb(255, 255, 255);
+}
+
+.icon-dark {
+  color: rgb(0, 0, 0);
+}
+
+.overlay-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9996;
+    overflow-y: scroll;
+    cursor: pointer;
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+    transition: 0.15s ease-in;
+}
+
+.overlay-show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay-hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media (min-width: 1024px) {
+
+    .icon-dark {
+        color: rgb(0, 0, 0);
+        margin-right: 20px;
+      }
+
+}

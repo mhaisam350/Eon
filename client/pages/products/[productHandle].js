@@ -2,17 +2,20 @@ import { useState, useEffect } from 'react';
 
 import Head from 'next/head';
 
-import styles from '../../styles/ProductPage.module.scss';
-
 import Header from '../../components/Header';
 import EmblaCarousel from '../../components/EmblaCarousel';
 import OptionsForm from '../../components/OptionsForm';
 import QuantityForm from '../../components/QuantityForm';
 import Footer from '../../components/Footer';
 
-import { storefront } from '../../utils';
+import { useCartContext } from '../../contexts/CartContext';
 
+import { storefront } from '../../utils';
 import { formatPrice } from '../../utils';
+
+import { addToCart } from '../../utils/addToCart';
+
+import styles from '../../styles/ProductPage.module.scss';
 
 export default function ProductPage( { product } ) {
 
@@ -59,6 +62,8 @@ export default function ProductPage( { product } ) {
     const [quantityAvailable, setQuantityAvailable] = useState(variantOptions[0].variantQuantity);
     const [quantity, setQuantity] = useState(1);
 
+    const { cartId, setCartToggled } = useCartContext();
+
     function optionsSet(name, value) {
 
         setSelectedOptions(prevState => {
@@ -83,6 +88,26 @@ export default function ProductPage( { product } ) {
     }, [selectedOptions]);
 
     // console.log(variantOptions);
+
+    const handleAddToCart = async () => {
+
+        console.log(`--- Adding to cart ---`);
+
+        const localCart = JSON.parse(window.localStorage.getItem('CART')).cart.cartId;
+
+        if (localCart !== cartId) {
+
+            console.log('ERROR: Cart Id not matched - productHandle.js:100');
+
+            return; 
+
+        };
+
+        await addToCart(localCart, selectedVariant, quantity);
+
+        setCartToggled(true);
+        
+    }
 
     return (
 
@@ -126,7 +151,7 @@ export default function ProductPage( { product } ) {
 
                             <div className={'flex' + " " + styles['purchase-container']}>
 
-                                <button className={styles['product-btn']} id={styles['add-to-cart-btn']}>Add to Cart</button>
+                                <button onClick={handleAddToCart} className={styles['product-btn']} id={styles['add-to-cart-btn']}>Add to Cart</button>
 
                                 <button className={styles['product-btn']} id={styles['buy-now-btn']}>Buy Now</button>
 

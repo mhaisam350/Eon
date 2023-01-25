@@ -26,12 +26,10 @@ export default function Home({ products }) {
 
         <div className={styles['hero-content']}>
 
-          <h1 className={styles['hero-title']}>Eon UI Kit</h1>
+          <h1 className={styles['hero-title']}>Eon Motors</h1>
 
           <h2 className={styles['hero-description']}>Instant access to over 6,000+ easy-to-customize components to 
           supercharge your design workflow.</h2>
-
-          <Link href='/' className={styles['hero-link']}>Learn More</Link>
           
         </div>
 
@@ -43,7 +41,7 @@ export default function Home({ products }) {
                 
           <h2 className={styles['category-title']}>Bike Accessories</h2>
 
-          <Link href='/' className={styles['category-link']}>Learn More</Link>
+          <Link href='/categories/bike-accessories' className={styles['category-link']}>Learn More</Link>
 
         </article>
 
@@ -51,7 +49,7 @@ export default function Home({ products }) {
                 
             <h2 className={styles['category-title']}>Apparel</h2>
 
-            <Link href='/' className={styles['category-link']}>Learn More</Link>
+            <Link href='/categories/apparel' className={styles['category-link']}>Learn More</Link>
 
         </article>
 
@@ -59,7 +57,7 @@ export default function Home({ products }) {
                 
             <h2 className={styles['category-title']}>Lifestyle</h2>
 
-            <Link href='/' className={styles['category-link']}>Learn More</Link>
+            <Link href='/categories/lifestyle' className={styles['category-link']}>Learn More</Link>
 
         </article>
 
