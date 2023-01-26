@@ -106,6 +106,8 @@ export default function ProductPage( { product } ) {
         await addToCart(localCart, selectedVariant, quantity);
 
         setCartToggled(true);
+
+        window.localStorage.setItem('CART_STATUS', 'dirty');
         
     }
 

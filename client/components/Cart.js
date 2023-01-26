@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import Link from "next/link";
 
+import LoadingSpinner from "./LoadingSpinner";
+
 import { useCartContext } from "../contexts/CartContext";
 
 import { displayCart } from "../utils/displayCart";
@@ -19,6 +21,7 @@ export default function Cart() {
 
     const [products, setProducts] = useState([]);
     const [cost, setCost] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const { cartId, setCartId, cartToggled } = useCartContext();
 
@@ -35,6 +38,8 @@ export default function Cart() {
 
             if (cartData) {
 
+                setIsLoading(true);
+
                 console.log('--- Retrieving cart ---');
 
                 setCartId(cartData.cart.cartId);
@@ -43,6 +48,8 @@ export default function Cart() {
 
                 setProducts(existingCart.body.cart.lines.edges);
                 setCost(existingCart.body.cart.estimatedCost);
+
+                setIsLoading(false);
 
                 return;
 
@@ -68,13 +75,39 @@ export default function Cart() {
 
         handleCart();
 
+        const interval = setInterval(() => {
+
+            const cartStatus = window.localStorage.getItem('CART_STATUS');
+
+            if (cartStatus && cartStatus === 'dirty') {
+
+                handleCart();
+
+                window.localStorage.setItem('CART_STATUS', 'clean');
+
+            };
+
+        }, 300);
+
+        return () => {
+
+            clearInterval(interval);
+
+        };
+
     }, []);
 
     const handleRemoveFromCart = async (itemId) => {
 
+        setIsLoading(true);
+
         console.log('--- Removing from cart ---');
 
         await removeFromCart(cartId, itemId);
+
+        window.localStorage.setItem('CART_STATUS', 'dirty');
+
+        setIsLoading(false);
 
         return;
 
@@ -83,6 +116,8 @@ export default function Cart() {
     const emptyCart = () => {
 
         window.localStorage.removeItem('CART');
+
+        window.localStorage.setItem('CART_STATUS', 'dirty');
 
         setCartId(null);
         setProducts([]);
@@ -95,6 +130,12 @@ export default function Cart() {
         <aside className={styles['cart-container']}>
 
             <h2 className={styles['cart-heading']}>Cart</h2>
+
+            {isLoading && 
+
+                <LoadingSpinner />
+
+            }
 
             {products.length > 0 && Object.keys(cost).length > 0 && cost.totalTaxAmount ? (
                 
