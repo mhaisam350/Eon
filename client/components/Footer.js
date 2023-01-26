@@ -11,7 +11,7 @@ const Footer = () => {
         
         <footer className={styles.footer}>
 
-            <p>Eon <FontAwesomeIcon icon={faCopyright} /> 2023</p>
+            <p className={styles.icon}>Eon <FontAwesomeIcon className={styles.icon} icon={faCopyright} /> 2023</p>
 
         </footer>
 
