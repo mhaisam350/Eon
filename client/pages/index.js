@@ -27,9 +27,6 @@ export default function Home({ products }) {
         <div className={styles['hero-content']}>
 
           <h1 className={styles['hero-title']}>Eon Motors</h1>
-
-          <h2 className={styles['hero-description']}>Instant access to over 6,000+ easy-to-customize components to 
-          supercharge your design workflow.</h2>
           
         </div>
 
