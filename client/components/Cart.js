@@ -35,8 +35,9 @@ export default function Cart() {
             let cartData = JSON.parse(
                 window.localStorage.getItem('CART')
             );
-
-            if (cartData) {
+            
+            // Retrieve cart if cart was created not more than 18 hours ago
+            if (cartData && new Date().getTime() - cartData.timeCreated < 18*60*60*1000) {
 
                 setIsLoading(true);
 
