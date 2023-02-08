@@ -5,9 +5,11 @@
     top: 0;
     width: 100%;
     font-size: 1em;
+    font-weight: 400;
     z-index: 999;
-    background: #000;
-    color: #fff;
+    background: #fff;
+    color: #000;
+    transition: transform 0.2s ease;
 }
 
 .nav {
@@ -19,14 +21,27 @@
 }
 
 .header-menu {
+    align-items: center;
     margin: 0;
     padding: 0;
     z-index: 1000;
+}
 
-    & > li {
-        position: relative;
-        cursor: pointer;
-    }
+.menu-item {
+    position: relative;
+    cursor: pointer;
+    font-family: $koho;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#scrambler-link {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-right: 3px solid #000;
+    padding-right: 1em;
 }
 
 .icon-container {
@@ -111,25 +126,17 @@
         gap: 2em;
         z-index: 1000;
         padding: min(15vh, 7em) 1em;
-        background-color: #000;
+        background-color: #fff;
         font-size: 1.5em;
         text-align: center;
         -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
 
-    .dropdown-menu {
-        position: static;
-        visibility: visible;
-        opacity: 1;
-        width: auto;
-    }
-
-    .dropdown-show {
-        display: block;
-    }
-
-    .dropdown-hide {
-        display: none;
+    #scrambler-link {
+        border-right: 0;
+        border-bottom: 3px solid #000;
+        padding-right: 0;
+        padding-bottom: 0.5em;
     }
 
     .nav-show {
@@ -144,7 +151,7 @@
 
     .mobile-toggle {
         display: block;
-        z-index: 9999;
+        z-index: 9990;
     }
 
 }

@@ -15,9 +15,20 @@ $hero-btn-padding: 1em 3.5em;
 $regular-btn-padding: 0.5em 1em;
 
 
+$yellow: #FFC602;
+$bg-light: #FCFCFC;
+$text-dark: #333333;
+
+$anton: 'Anton', sans-serif;
+$koho: 'KoHo', sans-serif;
+
+
 %button {
-    background-color: #F6F6F6;
-    color: #000;
+    font-size: 0.9em;
     font-weight: 600;
-    border-radius: 5px;
+    // text-transform: uppercase;
+    border: 3px solid #000;
+    border-radius: 7px;
+    padding: 0.5em 2.5em;
+    cursor: pointer;
 }

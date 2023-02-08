@@ -4,20 +4,19 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.scss';
 
 import Header from '../components/Header';
+import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
 import { client } from '../lib/shopify';
 
-export default function Home({ products }) {
-
-  // console.log(products);
+export default function Home() {
 
   return (
 
     <>
 
       <Head>
-        <title>Eon</title>
+        <title>Eon Motors</title>
       </Head>
 
       <Header />
@@ -26,39 +25,49 @@ export default function Home({ products }) {
 
         <div className={styles['hero-content']}>
 
-          <h1 className={styles['hero-title']}>Eon Motors</h1>
+          <h3 className={styles['hero-subheading']}>Introducing</h3>
+
+          <h1 className={styles['hero-heading']}>The Scrambler</h1>
+
+          <button className={styles['hero-btn']}>Discover</button>
           
         </div>
 
       </main>
 
-      <section className={'grid' + " " + styles['categories']}>
+      <section className={'flex' + " " + styles['categories']}>
 
-        <article className={'flex' + " " + styles['category-article']} id={styles['accessories-article']}>
+        <article className={styles['category-article']} id={styles['lifestyle-article']}>
                 
-          <h2 className={styles['category-title']}>Bike Accessories</h2>
+          <h2 className={styles['category-heading']}>Lifestyle</h2>
 
-          <Link href='/categories/bike-accessories' className={styles['category-link']}>Learn More</Link>
+          <Link href='/categories/lifestyle'><button className={styles['category-btn']}>Shop Now</button></Link>
 
         </article>
 
-        <article className={'flex' + " " + styles['category-article']} id={styles['apparel-article']}>
+        <article className={styles['category-article']} id={styles['apparel-article']}>
                 
-            <h2 className={styles['category-title']}>Apparel</h2>
+            <h2 className={styles['category-heading']}>Apparel</h2>
 
-            <Link href='/categories/apparel' className={styles['category-link']}>Learn More</Link>
-
-        </article>
-
-        <article className={'flex' + " " + styles['category-article']} id={styles['lifestyle-article']}>
-                
-            <h2 className={styles['category-title']}>Lifestyle</h2>
-
-            <Link href='/categories/lifestyle' className={styles['category-link']}>Learn More</Link>
+            <Link href='/categories/apparel'><button className={styles['category-btn']}>Shop Now</button></Link>
 
         </article>
 
       </section>
+
+      <section className={'flex' + " " + styles['accessories']}>
+
+        <div className={styles['accessories-content']}>
+
+          <h2 className={styles['accessories-heading']}>Accessories</h2>
+
+          <Link href='/categories/bike-accessories'><button className={styles['accessories-btn']}>Shop Now</button></Link>
+
+        </div>
+
+      </section>
+
+      <Newsletter />
       
       <Footer />
 
@@ -68,14 +77,14 @@ export default function Home({ products }) {
   
 }
 
-export const getStaticProps = async () => {
+// export const getStaticProps = async () => {
 
-  const products = await client.product.fetchAll();
+//   const products = await client.product.fetchAll();
 
-  return {
-    props: {
-      products: JSON.parse(JSON.stringify(products)),
-    }
-  };
+//   return {
+//     props: {
+//       products: JSON.parse(JSON.stringify(products)),
+//     }
+//   };
 
-};
+// };

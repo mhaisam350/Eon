@@ -5,15 +5,16 @@
     border: 0;
     font-size: 20px;
     cursor: pointer;
+    color: #000;
 }
 
-.icon-light {
-  color: rgb(255, 255, 255);
-}
+// .icon-light {
+//   color: rgb(255, 255, 255);
+// }
 
-.icon-dark {
-  color: rgb(0, 0, 0);
-}
+// .icon-dark {
+//   color: rgb(0, 0, 0);
+// }
 
 .overlay-container {
     position: fixed;
@@ -22,7 +23,7 @@
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 9996;
+    z-index: 9999;
     overflow-y: scroll;
     cursor: pointer;
     height: 100vh;
@@ -43,8 +44,7 @@
 
 @media (min-width: 1024px) {
 
-    .icon-dark {
-        color: rgb(0, 0, 0);
+    .icon-margin {
         margin-right: 20px;
       }
 

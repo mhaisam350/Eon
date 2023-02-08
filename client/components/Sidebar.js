@@ -13,7 +13,7 @@ export default function Sidebar() {
 
     const { cartToggled, setCartToggled } = useCartContext();
 
-    const iconColor = cartToggled ? styles['icon-dark'] : styles['icon-light'];
+    const iconMargin = cartToggled ? styles['icon-margin'] : '';
     const overlayDisplay = cartToggled ? styles['overlay-show'] : styles['overlay-hide'];
 
     const overlayControl = (e) => {
@@ -36,7 +36,7 @@ export default function Sidebar() {
 
         <>
         
-            <button onClick={() => setCartToggled(!cartToggled)} className={styles['icon'] + " " + iconColor}><FontAwesomeIcon icon={cartToggled ? faXmark : faCartShopping} /></button>
+            <button onClick={() => setCartToggled(!cartToggled)} className={styles['icon'] + " " + iconMargin}><FontAwesomeIcon icon={cartToggled ? faXmark : faCartShopping} /></button>
 
             <section onClick={overlayControl}  className={styles['overlay-container'] + " " + overlayDisplay} id={'overlay-container'}>
 

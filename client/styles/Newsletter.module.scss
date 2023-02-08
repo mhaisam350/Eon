@@ -1,0 +1,52 @@
+@import './variables';
+
+.newsletter {
+    padding: 4em 0;
+    background-color: $bg-light;
+    color: $text-dark;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.newsletter-heading {
+    font-family: $anton;
+    font-size: 2em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.newsletter-text {
+    margin: 1.5em 0;
+}
+
+.newsletter-input {
+    display: block;
+    margin: 1.5em auto;
+    width: 80%;
+    padding: 1em 1em;
+    font-size: 0.9em;
+    font-weight: 600;
+    border: 2px solid #000;
+    border-radius: 3px;
+}
+
+.newsletter-btn {
+    @extend %button;
+    background-color: $yellow;
+}
+
+@media (min-width: 800px) {
+
+    .newsletter {
+        padding: 6em 0;
+        background-color: $bg-light;
+        color: $text-dark;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .newsletter-input {
+        width: 400px;
+    }
+
+}

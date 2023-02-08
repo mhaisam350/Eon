@@ -1,12 +1,69 @@
 @import './variables';
 
 .footer {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     padding: 2em 0;
     text-align: center;
     background-color: #000;
+    height: 270px;
+}
+
+.footer-logo {
     color: #fff;
 }
 
-.icon {
+.footer-links {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 120px;
+    color: #a5a4a4;
+}
+
+.link-li {
+    cursor: pointer;
+    transition: 0.1s ease-in;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.copyright-text {
+    font-weight: 600;
+    color: #fff;
+}
+
+.copyright-icon {
     font-size: 1em;
+}
+
+.footer-icons {
+    justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+}
+
+.icon {
+    font-size: 1.7em;
+    color: $yellow;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+@media (min-width: 800px) {
+
+    .footer-links {
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 700px;
+        height: auto;
+    }
+
 }
