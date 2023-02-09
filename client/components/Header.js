@@ -68,7 +68,7 @@ const Header = () => {
             <menu className={'flex' + " " + styles['header-menu'] + " " + navToggleClass}>
 
                 <li className={styles['menu-item']} id={styles['border-right']}>
-                    <Link href='/' className={styles['header-link']} id={styles['scrambler-link']}>Scrambler</Link>
+                    <Link href='/scrambler' className={styles['header-link']} id={styles['scrambler-link']}>Scrambler</Link>
                 </li>
 
                 {/* <li>
