@@ -1,2 +1,444 @@
 @import './variables';
 
+// Hero section
+.hero-text-container {
+    height: 90vh;
+    background-image: url('/Scrambler/bllack.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 10px solid #921e1e;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.hero-text {
+    margin: 10em 0;
+    color: #fff;
+}
+
+.hero-heading {
+    font-family: $anton;
+    font-size: 3em;
+    text-transform: uppercase;
+    border-bottom: 3px solid #fff;
+    padding: 0 0.5em 0.3em;
+}
+
+.hero-subheading {
+    line-height: 1.3;
+    padding: 0.7em 1.7em;
+}
+
+.hero-image-container {
+    background-color: #fff;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+// Description section
+.description {
+    margin: $vertical-margin 0;
+    text-align: center;
+}
+
+.description-heading {
+    font-family: $anton;
+    font-size: 2.2em;
+    text-transform: uppercase;
+}
+
+.description-paragraph {
+    line-height: 1.5;
+    margin: 2em 0;
+}
+
+.description-btn {
+    @extend %button;
+    background-color: rgb(146, 30, 30);
+    color: #fff;
+}
+
+// Banner section
+.banner {
+    margin: $vertical-margin 0;
+    color: #fff;
+    background-color: rgb(150, 32, 32);
+    position: relative;
+    height: 500px;
+}
+
+.banner-flex {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.banner-text {
+    padding: 8em 1em 4em;
+}
+
+.banner-heading {
+    font-family: $anton;
+    font-size: 2.2em;
+    text-transform: uppercase;
+}
+
+.banner-paragraph {
+    line-height: 1.5;
+    margin: 1em 0;
+}
+
+.banner-image {
+    width: 90%;
+}
+
+// Features section
+.features {
+    margin-top: 120%;
+    height: 100vh;
+    background-image: url('/Scrambler/features.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.features-content {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+}
+
+.features-heading {
+    font-family: $anton;
+    text-transform: uppercase;
+    font-size: 2.5em;
+}
+
+.features-subheading {
+    font-family: $koho;
+    text-transform: uppercase;
+    color: $yellow;
+    font-weight: 600;
+}
+
+.features-btn {
+    @extend %button;
+    background-color: $yellow;
+}
+
+.features-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-direction: column;
+    transition: transform 0.5s ease;
+}
+
+.features-overlay::-webkit-scrollbar {
+    width: 0.5em;
+    height: 0.3em;
+}
+
+.features-overlay::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+.features-overlay::-webkit-scrollbar-thumb {
+    background-color: #921e1e;
+}
+
+@supports (scrollbar-color: #921e1e #fff) {
+
+    .features-overlay {
+        scrollbar-color: #921e1e #fff;
+        scrollbar-width: thin;
+    }
+
+}
+
+.features-overlay-show {
+    transform: translateY(0);
+}
+
+.features-overlay-hidden {
+    transform: translateY(100vh);
+}
+
+.feature {
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.feature-text {
+    height: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-heading {
+    font-family: $anton;
+    text-transform: uppercase;
+    font-size: 3em;
+}
+
+.feature-subheading {
+    font-family: $koho;
+    text-transform: uppercase;
+    color: #921e1e;
+    font-weight: 600;
+}
+
+.feature-paragraph {
+    width: 80%;
+}
+
+.feature-img {
+    height: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#feature-1 {
+    background-image: url('/Scrambler/ride.jpg');
+}
+
+#feature-2 {
+    background-image: url('/Scrambler/LED.jpg');
+}
+
+#feature-3 {
+    background-image: url('/Scrambler/wheel.jpg');
+}
+
+// Specs section
+.specs {
+    margin-top: 0;
+    padding: 4em 0;
+    background-color: #171717;
+    color:#fff
+}
+
+.specs-flex {
+    flex-direction: column;
+    // align-items: center;
+}
+
+.specs-image {
+    width: 100%
+}
+
+.specs-heading {
+    font-family: $anton;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.specs-details-flex {
+    justify-content: space-around;
+}
+
+.specs-list-item {
+    line-height: 1.3;
+    margin: 1.5em 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid white;
+}
+
+.list-heading {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $yellow;
+    margin: 0.5em 0;
+}
+
+@media (max-width: 400px) {
+
+    .specs-list {
+        font-size: 0.8em;
+    }
+
+}
+
+@media (min-width: 800px) {
+
+    // Hero section
+    .hero-text-container {
+        height: 90vh;
+        background-position: auto;
+    }
+
+    .hero-text {
+        margin: 15em 0;
+    }
+
+    .hero-heading {
+        font-size: 5em;
+        padding: 0 0.5em 0.3em;
+    }
+    
+    .hero-subheading {
+        padding: 0.7em 1.7em;
+    }
+
+    .hero-image {
+        width: 800px;
+        bottom: -60px;
+    }
+
+    // Description section
+    .description-heading {
+        font-size: 4em;
+    }
+
+    // Banner section
+    .banner {
+        height: 400px;
+        margin: 15em 0;
+    }
+
+    .banner-flex {
+        flex-direction: row;
+        justify-content: center;
+        gap: 3em;
+        width: 100%;
+        top: -100px;
+    }
+
+    .banner-text {
+        padding-left: 3em;
+    }
+
+    .banner-image {
+        width: 400px;
+        padding-right: 3em;
+        // width: 30%;
+    }
+
+    // Features section
+    .features {
+        margin-top: 25em;
+    }
+
+    .features-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 790px;
+    }
+
+    .features-heading {
+        font-size: 4em;
+}
+
+    .features-overlay {
+        overflow-y: hidden;
+        overflow-x: auto;
+        flex-direction: row;
+    }
+
+    .features-overlay-show {
+        transform: translateX(0);
+    }
+
+    .features-overlay-hidden {
+        transform: translateX(100vw);
+    }
+
+    .feature {
+        flex-direction: row;
+        min-width: 100%;
+        background-color: #fff;
+    }
+
+    .feature-text, .feature-img {
+        width: 50%;
+        height: 100%;
+    }
+
+    // Specs section
+    .specs-flex {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .specs-image {
+        width: 400px;
+    }
+
+    .specs-content {
+        width: 400px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    // Hero section
+    .hero-heading {
+        font-size: 7em;
+        padding: 0 0.5em 0.3em;
+    }
+    
+    .hero-subheading {
+        padding: 0.7em 1.7em;
+    }
+
+    // Feature section
+    
+
+    // Specs section
+    .specs-flex {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .specs-image {
+        width: 500px;
+    }
+    
+    .specs-details-flex {
+        justify-content: space-evenly;
+    }
+
+    .specs-content {
+        width: 50%;
+    }
+
+    .specs-heading {
+        font-size: 3em;
+    }
+
+    .list-heading {
+        font-size: 1.5em;
+    }
+
+}   

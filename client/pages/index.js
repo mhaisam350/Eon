@@ -25,7 +25,7 @@ export default function Home() {
 
         <div className={styles['hero-content']}>
 
-          <h3 className={styles['hero-subheading']}>Introducing</h3>
+          <h2 className={styles['hero-subheading']}>Introducing</h2>
 
           <h1 className={styles['hero-heading']}>The Scrambler</h1>
 

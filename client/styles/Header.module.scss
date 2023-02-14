@@ -56,41 +56,6 @@
     font-size: 20px;
 }
 
-.dropdown-parent {
-    position: relative;
-}
-
-.dropdown-parent-text {
-    padding: 15px 0;
-}
-
-.dropdown-menu {
-    visibility: hidden;
-    opacity: 1;
-    position: absolute;
-    z-index: 2000;
-    margin: 15px 0;
-    padding: 8px;
-    background-color: white;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-    width: 200px;
-    border-radius: 5px;
-
-    li {
-            padding: 15px 7px;
-            border-radius: 5px;
-            // line-height: 40px;
-            // display: inline-block;
-    }
-
-}
-
-.dropdown-item:hover {
-    background-color: turquoise;
-    transition: 0.1s ease-in-out;
-    color: #fff;
-}
-
 .mobile-toggle {
     display: none;
 }
@@ -184,19 +149,6 @@
 
     .header-menu > li {
         position: relative;
-    }
-
-    .dropdown-parent-link {
-        padding-bottom: 20px;  
-    }
-
-    .dropdown-parent:hover {
-    
-        .dropdown-menu  {
-            visibility: visible;
-            opacity: 1;
-        }
-    
     }
 
 }
