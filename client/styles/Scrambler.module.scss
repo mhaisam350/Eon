@@ -7,28 +7,36 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-bottom: 10px solid #921e1e;
-
-    justify-content: flex-start;
-    align-items: flex-start;
+    border-bottom: 10px solid $red;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-text {
-    margin: 10em 0;
     color: #fff;
+    text-align: center;
 }
 
 .hero-heading {
     font-family: $anton;
-    font-size: 3em;
+    font-size: 3.7em;
     text-transform: uppercase;
-    border-bottom: 3px solid #fff;
-    padding: 0 0.5em 0.3em;
 }
 
 .hero-subheading {
     line-height: 1.3;
-    padding: 0.7em 1.7em;
+    font-family: $koho;
+    text-transform: uppercase;
+    color: $yellow;
+    font-weight: 600; 
+}
+
+.hero-btn {
+    @extend %button;
+    background-color: transparent;
+    color: $yellow;
+    border-color: $yellow;
+    margin-top: 5em;
 }
 
 .hero-image-container {
@@ -50,6 +58,9 @@
 .description {
     margin: $vertical-margin 0;
     text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .description-heading {
@@ -60,13 +71,33 @@
 
 .description-paragraph {
     line-height: 1.5;
-    margin: 2em 0;
+    margin-top: 2em;
+    width: 90%;
+}
+
+.description-icons {
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 4em;
+}
+
+.description-icon {
+    color: $red;
+    font-size: 2em;
+}
+
+.description-item-text {
+    font-family: $koho;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-top: 1em;
 }
 
 .description-btn {
+    margin-top: 4em;
     @extend %button;
-    background-color: rgb(146, 30, 30);
-    color: #fff;
+    background-color: #fff;
 }
 
 // Banner section
@@ -106,7 +137,7 @@
 
 // Features section
 .features {
-    margin-top: 120%;
+    // margin-top: 120%;
     height: 100vh;
     background-image: url('/Scrambler/features.jpg');
     background-repeat: no-repeat;
@@ -139,7 +170,10 @@
 
 .features-btn {
     @extend %button;
-    background-color: $yellow;
+    background-color: transparent;
+    color: $yellow;
+    border-color: $yellow;
+    margin-top: 2em;
 }
 
 .features-overlay {
@@ -150,7 +184,7 @@
     right: 0;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+    z-index: 9998;
     overflow-y: auto;
     overflow-x: hidden;
     flex-direction: column;
@@ -167,13 +201,13 @@
 }
 
 .features-overlay::-webkit-scrollbar-thumb {
-    background-color: #921e1e;
+    background-color: $red;
 }
 
-@supports (scrollbar-color: #921e1e #fff) {
+@supports (scrollbar-color: $red #fff) {
 
     .features-overlay {
-        scrollbar-color: #921e1e #fff;
+        scrollbar-color: $red #fff;
         scrollbar-width: thin;
     }
 
@@ -183,7 +217,7 @@
     transform: translateY(0);
 }
 
-.features-overlay-hidden {
+.features-overlay-hide {
     transform: translateY(100vh);
 }
 
@@ -193,11 +227,15 @@
     background-color: #fff;
 }
 
+.feature-flex-container {
+    height: 100%;
+}
+
 .feature-text {
-    height: 50%;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    padding-left: 2em;
+    // align-items: center;
 }
 
 .feature-heading {
@@ -209,12 +247,17 @@
 .feature-subheading {
     font-family: $koho;
     text-transform: uppercase;
-    color: #921e1e;
+    color: $red;
     font-weight: 600;
+    padding-left: 2em;
 }
 
 .feature-paragraph {
-    width: 80%;
+    width: 90%;
+    margin-top: 1em;
+    line-height: 1.5;
+    color: $text-dark;
+    font-size: 0.9em;
 }
 
 .feature-img {
@@ -234,6 +277,33 @@
 
 #feature-3 {
     background-image: url('/Scrambler/wheel.jpg');
+}
+
+.overlay-btn {
+    position: fixed;
+    top: 10px;
+    left: 25px;
+    z-index: 9999;
+    color: $red;
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+}
+
+.overlay-btn-show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.overlay-btn-hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.scroll-text {
+    display: none;
 }
 
 // Specs section
@@ -269,7 +339,7 @@
     line-height: 1.3;
     margin: 1.5em 0;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid white;
+    // border-bottom: 1px solid white;
 }
 
 .list-heading {
@@ -296,16 +366,15 @@
     }
 
     .hero-text {
-        margin: 15em 0;
+        margin: 30vh 0;
     }
 
     .hero-heading {
-        font-size: 5em;
-        padding: 0 0.5em 0.3em;
+        font-size: 7em;
     }
     
     .hero-subheading {
-        padding: 0.7em 1.7em;
+        font-size: 1.2em;
     }
 
     .hero-image {
@@ -316,6 +385,10 @@
     // Description section
     .description-heading {
         font-size: 4em;
+    }
+
+    .description-paragraph {
+        width: 80%;
     }
 
     // Banner section
@@ -344,7 +417,7 @@
 
     // Features section
     .features {
-        margin-top: 25em;
+        // margin-top: 25em;
     }
 
     .features-content {
@@ -356,7 +429,11 @@
 
     .features-heading {
         font-size: 4em;
-}
+    }
+
+    .features-btn {
+        margin: 0;
+    }
 
     .features-overlay {
         overflow-y: hidden;
@@ -368,7 +445,7 @@
         transform: translateX(0);
     }
 
-    .features-overlay-hidden {
+    .features-overlay-hide {
         transform: translateX(100vw);
     }
 
@@ -378,9 +455,38 @@
         background-color: #fff;
     }
 
-    .feature-text, .feature-img {
+    .feature-flex-container, .feature-img {
         width: 50%;
         height: 100%;
+    }
+
+    .feature-text {
+        height: 100%;
+        margin-left: 10%;
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    .feature-subheading {
+        padding: 0;
+    }
+
+    .feature-paragraph {
+        font-size: 1em;
+        margin: 2em 0;
+    }
+
+    .scroll-text {
+        display: block;
+        margin-top: 1em;
+        font-family: $anton;
+        text-transform: uppercase;
+        color: #000;
+        font-size: 1.3em;
+    }
+
+    .scroll-icon {
+        color: $red;
     }
 
     // Specs section
@@ -403,17 +509,33 @@
 @media (min-width: 1024px) {
 
     // Hero section
+    .hero-text-container {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .hero-text {
+        text-align: left;
+        margin: 30vh 0 0 3em;
+    }
+
     .hero-heading {
         font-size: 7em;
-        padding: 0 0.5em 0.3em;
     }
-    
-    .hero-subheading {
-        padding: 0.7em 1.7em;
+
+    // Description section
+    .description-paragraph {
+        width: 70%;
     }
 
     // Feature section
-    
+    .feature-text {
+        margin-left: 7em;
+    }
+
+    .feature-paragraph {
+        width: 80%;
+    }
 
     // Specs section
     .specs-flex {
@@ -438,7 +560,7 @@
     }
 
     .list-heading {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 
 }   

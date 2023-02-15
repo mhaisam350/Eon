@@ -8,11 +8,15 @@ import Header from '../components/Header';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark, faAnglesRight, faGasPump, faGaugeSimpleHigh } from '@fortawesome/free-solid-svg-icons';
+
 export default function Scrambler() {
 
     const [overlayToggled, setOverlayToggled] = useState(false);
 
-    const overlayDisplay = overlayToggled ? styles['features-overlay-show'] : styles['features-overlay-hidden'];
+    const overlayDisplay = overlayToggled ? styles['features-overlay-show'] : styles['features-overlay-hide'];
+    const overlayBtnDisplay = overlayToggled ? styles['overlay-btn-show'] : styles['overlay-btn-hide'];
 
     const overlayRef = useRef(null);
 
@@ -55,9 +59,11 @@ export default function Scrambler() {
 
                 <div className={styles['hero-text']}>
 
+                    <h2 className={styles['hero-subheading']}>A New Chapter</h2>
+
                     <h1 className={styles['hero-heading']}>Scrambler</h1>
 
-                    <h2 className={styles['hero-subheading']}>Vivamus sodales auctor.</h2>
+                    <button className={styles['hero-btn']}>Order Now</button>
 
                 </div>
 
@@ -71,18 +77,39 @@ export default function Scrambler() {
 
         </main>
 
-        <section className={styles['description']}>
+        <section className={'flex' + " " + styles['description']}>
 
             <h2 className={styles['description-heading']}>The Future is Here</h2>
 
             <p className={styles['description-paragraph']}>Mauris sodales ornare ex quis placerat. Nulla sit amet turpis gravida arcu faucibus scelerisque. 
             Maecenas congue consequat nunc, at aliquam neque. Vestibulum rhoncus in nisi sed sollicitudin.</p>
 
+
+            <section className={'flex' + " " + styles['description-icons']}>
+
+                <div className={styles['description-item']}>
+
+                    <FontAwesomeIcon className={styles['description-icon']} icon={faGaugeSimpleHigh} />
+
+                    <p className={styles['description-item-text']}>800 cc</p>
+
+                </div>
+
+                <div className={styles['description-item']}>
+
+                    <FontAwesomeIcon className={styles['description-icon']} icon={faGasPump} />
+
+                    <p className={styles['description-item-text']}>5.2 l/100 km</p>
+
+                </div>
+
+            </section>
+            
             <button className={styles['description-btn']}>Learn More</button>
 
         </section>
 
-        <section className={styles['banner']}>
+        {/* <section className={styles['banner']}>
 
             <div className={'flex' + " " + styles['banner-flex']}>
 
@@ -99,7 +126,7 @@ export default function Scrambler() {
 
             </div>
 
-        </section>
+        </section> */}
 
         <section className={'flex' + " " + styles['features']}>
 
@@ -113,7 +140,9 @@ export default function Scrambler() {
                 
                 </div>
 
-                <button className={styles['features-btn']} onClick={(e) => setOverlayToggled(!overlayToggled)}>Discover</button>
+                <button className={styles['features-btn']} onClick={(e) => setOverlayToggled(true)}>See features</button>
+
+                <button className={styles['overlay-btn'] + " " + overlayBtnDisplay} onClick={(e) => setOverlayToggled(false)}><FontAwesomeIcon className={styles['close-icon']} icon={faCircleXmark} /></button>
 
             </div>
 
@@ -121,17 +150,22 @@ export default function Scrambler() {
 
                 <article className={'flex' + " " + styles['feature']}>
 
-                    <div className={'flex' + " " + styles['feature-text']}>
+                    <div className={'flex' + " " + styles['feature-flex-container']}>
 
-                        <h4 className={styles['feature-subheading']}>Subheading</h4>
-                        
-                        <h3 className={styles['feature-heading']}>Heading</h3>
+                        <div className={'flex' + " " + styles['feature-text']}>
 
-                        <p className={styles['feature-paragraph']}>Nulla a neque feugiat, vestibulum magna quis, volutpat lacus. Curabitur vitae risus vel erat bibendum hendrerit. 
-                            Phasellus sed interdum nisl. Nunc viverra laoreet ex nec sagittis.</p>
-    
-                        <button onClick={(e) => setOverlayToggled(!overlayToggled)}>Close</button>
+                            <h4 className={styles['feature-subheading']}>Dual</h4>
+                            
+                            <h3 className={styles['feature-heading']}>Riding Modes</h3>
 
+                            <p className={styles['feature-paragraph']}>Nulla a neque feugiat, vestibulum magna quis, volutpat lacus. Curabitur vitae risus vel erat bibendum hendrerit. Phasellus sed interdum nisl. Nunc viverra laoreet ex nec sagittis. 
+                            Etiam ultricies quam arcu, non blandit lacus dapibus nec. Ut sit amet nulla cursus justo gravida convallis eget non nisl. 
+                            Donec quis laoreet mauris, eget placerat augue.</p>
+
+                            <p className={styles['scroll-text']}>Scroll <FontAwesomeIcon className={styles['scroll-icon']} icon={faAnglesRight} /></p>
+
+                        </div>
+                    
                     </div>
 
                     <div className={styles['feature-img']} id={styles['feature-1']}></div>
@@ -140,17 +174,22 @@ export default function Scrambler() {
 
                 <article className={'flex' + " " + styles['feature']}>
 
-                    <div className={'flex' + " " + styles['feature-text']}>
+                    <div className={'flex' + " " + styles['feature-flex-container']}>
 
-                        <h4 className={styles['feature-subheading']}>Subheading</h4>
-                        
-                        <h3 className={styles['feature-heading']}>Heading</h3>
+                        <div className={'flex' + " " + styles['feature-text']}>
 
-                        <p className={styles['feature-paragraph']}>Nulla a neque feugiat, vestibulum magna quis, volutpat lacus. Curabitur vitae risus vel erat bibendum hendrerit. 
-                            Phasellus sed interdum nisl. Nunc viverra laoreet ex nec sagittis.</p>
-    
-                        <button onClick={(e) => setOverlayToggled(!overlayToggled)}>Close</button>
+                            <h4 className={styles['feature-subheading']}>Premium</h4>
+                            
+                            <h3 className={styles['feature-heading']}>LED Lighting</h3>
 
+                            <p className={styles['feature-paragraph']}>Duis cursus ornare metus, ut varius nisi facilisis ut. Nullam consectetur feugiat lorem sed pretium. Ut nunc leo, facilisis at eros non, vulputate viverra purus. 
+                            Mauris sapien nulla, tincidunt eu tellus eget, porttitor mattis enim. Curabitur et sapien imperdiet, consectetur justo sed, vehicula odio. 
+                            Aenean vitae consequat nisl.</p>
+                            
+                            <p className={styles['scroll-text']}>Scroll <FontAwesomeIcon className={styles['scroll-icon']} icon={faAnglesRight} /></p>
+
+                        </div>
+                    
                     </div>
 
                     <div className={styles['feature-img']} id={styles['feature-2']}></div>
@@ -159,22 +198,27 @@ export default function Scrambler() {
 
                 <article className={'flex' + " " + styles['feature']}>
 
-                    <div className={'flex' + " " + styles['feature-text']}>
+                    <div className={'flex' + " " + styles['feature-flex-container']}>
 
-                        <h4 className={styles['feature-subheading']}>Subheading</h4>
-                        
-                        <h3 className={styles['feature-heading']}>Heading</h3>
+                        <div className={'flex' + " " + styles['feature-text']}>
 
-                        <p className={styles['feature-paragraph']}>Nulla a neque feugiat, vestibulum magna quis, volutpat lacus. Curabitur vitae risus vel erat bibendum hendrerit. 
-                            Phasellus sed interdum nisl. Nunc viverra laoreet ex nec sagittis.</p>
-    
-                        <button onClick={(e) => setOverlayToggled(!overlayToggled)}>Close</button>
+                            <h4 className={styles['feature-subheading']}>18"</h4>
+                            
+                            <h3 className={styles['feature-heading']}>Alloy Wheels</h3>
+
+                            <p className={styles['feature-paragraph']}>Nulla a neque feugiat, vestibulum magna quis, volutpat lacus. Curabitur vitae risus vel erat bibendum hendrerit. 
+                                Phasellus sed interdum nisl. Nunc viverra laoreet ex nec sagittis.</p>
+
+                        </div>
 
                     </div>
 
                     <div className={styles['feature-img']} id={styles['feature-3']}></div>
 
                 </article>
+                
+
+                {/* <span className={styles['scroll-text']}><FontAwesomeIcon className={styles['scroll-icon']} icon={faAnglesLeft} /> Scroll <FontAwesomeIcon className={styles['scroll-icon']} icon={faAnglesRight} /> </span> */}
 
             </section>
 
