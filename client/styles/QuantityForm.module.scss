@@ -29,3 +29,12 @@
     padding: 0 20px;
     cursor: pointer;
 }
+
+.quantity-btn-pointer {
+    cursor: pointer;
+}
+
+.quantity-btn-disallowed {
+    cursor: not-allowed;
+    color: rgb(155, 155, 155);
+}

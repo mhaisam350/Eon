@@ -17,6 +17,10 @@ import { addToCart } from '../../utils/addToCart';
 
 import styles from '../../styles/ProductPage.module.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faSquareInstagram, faSquareFacebook, faSquarePinterest, faSquareTwitter, faSquareReddit } from '@fortawesome/free-brands-svg-icons'; 
+
 export default function ProductPage( { product } ) {
 
     // console.log(product);
@@ -174,6 +178,26 @@ export default function ProductPage( { product } ) {
                         <p className={styles['product-description']}>{ description }</p>
 
                     </article>
+
+                    <section className={styles['share-container']}>
+
+                        <h4 className={styles['share-heading']}>Share this</h4>
+
+                        <ul className={styles['share-icons']}>
+
+                            <li className={styles['share-icon']}><FontAwesomeIcon className={styles['email-icon']} icon={faEnvelope} /></li>
+
+                            <li className={styles['share-icon']}><FontAwesomeIcon className={styles['facebook-icon']} icon={faSquareFacebook} /></li>
+
+                            <li className={styles['share-icon']}><FontAwesomeIcon className={styles['pinterest-icon']} icon={faSquarePinterest} /></li>
+
+                            <li className={styles['share-icon']}><FontAwesomeIcon className={styles['twitter-icon']} icon={faSquareTwitter} /></li>
+
+                            <li className={styles['share-icon']}><FontAwesomeIcon className={styles['reddit-icon']} icon={faSquareReddit} /></li>
+
+                        </ul>
+
+                    </section>
 
                 </div>
 

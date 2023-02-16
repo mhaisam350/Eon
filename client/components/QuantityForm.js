@@ -2,6 +2,10 @@ import styles from '../styles/QuantityForm.module.scss';
 
 export default function QuantityForm( { quantity, maxQuantity, quantitySet } ) {
 
+    const cursorIncrementClass = quantity === maxQuantity ? styles['quantity-btn-disallowed'] : styles['quantity-btn-pointer'];
+
+    const cursorDecrementClass = quantity === 1 ? styles['quantity-btn-disallowed'] : styles['quantity-btn-pointer'];
+
     function increment() {
 
         if (quantity < maxQuantity) {
@@ -28,7 +32,7 @@ export default function QuantityForm( { quantity, maxQuantity, quantitySet } ) {
 
             <legend className={styles.legend}>Quantity</legend>
 
-                <button className={styles['quantity-btn']} onClick={decrement}>-</button>
+                <button className={styles['quantity-btn'] + " " + cursorDecrementClass} onClick={decrement}>-</button>
                 
                 <input
                     className={styles.input}
@@ -40,7 +44,7 @@ export default function QuantityForm( { quantity, maxQuantity, quantitySet } ) {
                     readOnly
                 />
                 
-                <button className={styles['quantity-btn']} onClick={increment}>+</button>
+                <button className={styles['quantity-btn'] + " " + cursorIncrementClass} onClick={increment}>+</button>
 
         </fieldset>
 
