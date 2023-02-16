@@ -15,23 +15,23 @@
 }
 
 .product-name {
-    font-size: 1.5em;
-    font-weight: 600;
+    font-family: $anton;
+    font-size: 2em;
     text-transform: capitalize;
 }
 
 .product-price {
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: 700;
-    margin: 0.4em 0;
+    margin: 0.8em 0;
 }
 
-.purchase-container {
+.purchase-buttons {
     flex-direction: column;
     margin: 30px 0;
 }
 
-.product-btn {
+.purchase-btn {
     border: 1px solid transparent;
     border-radius: 5em;
     margin: 15px 20px;
@@ -62,11 +62,11 @@
 
 #out-of-stock-btn {
     margin: 50px 20px;
-    cursor: default;
+    cursor: not-allowed;
 }
 
 .description-container {
-    margin: 1em 0;
+    margin: 3em 0;
 }
 
 .description-heading {
@@ -122,6 +122,14 @@
 
 .reddit-icon {
     color: #FF4500;
+}
+
+@media (min-width: 800px) {
+
+    .product-name {
+        font-size: 3em;
+    }
+
 }
 
 @media (min-width: 1024px) {

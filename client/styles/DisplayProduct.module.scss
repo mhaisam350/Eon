@@ -2,11 +2,10 @@
 
 .product-container {
     grid-column: 1fr;
-    // border: 1px solid grey;
     border-radius: 3px;
 
     &:hover .text-container {
-        background-color: #000;
+        background-color: #363535;
         color: #fff;
         transition: 0.1s ease-in;
     }

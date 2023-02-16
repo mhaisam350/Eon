@@ -151,23 +151,23 @@ export default function ProductPage( { product } ) {
                         
                     {quantityAvailable > 0 ? (
 
-                        <>
+                        <section className={styles['purchase-section']}>
                         
                             <QuantityForm quantity={quantity} maxQuantity={quantityAvailable} quantitySet={quantitySet} />
 
-                            <div className={'flex' + " " + styles['purchase-container']}>
+                            <div className={'flex' + " " + styles['purchase-buttons']}>
 
-                                <button onClick={handleAddToCart} className={styles['product-btn']} id={styles['add-to-cart-btn']}>Add to Cart</button>
+                                <button onClick={handleAddToCart} className={styles['purchase-btn']} id={styles['add-to-cart-btn']}>Add to Cart</button>
 
-                                <button className={styles['product-btn']} id={styles['buy-now-btn']}>Buy Now</button>
+                                <button className={styles['purchase-btn']} id={styles['buy-now-btn']}>Buy Now</button>
 
                             </div>
 
-                        </>
+                        </section>
 
                     ) : (
 
-                        <button disabled className={styles['product-btn']} id={styles['out-of-stock-btn']}>Out of stock</button>
+                        <button disabled className={styles['purchase-btn']} id={styles['out-of-stock-btn']}>Out of stock</button>
 
                     )}
 

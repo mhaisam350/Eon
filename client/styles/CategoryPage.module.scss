@@ -6,6 +6,14 @@
 }
 
 .category-heading {
+    font-family: $anton;
     font-size: 2em;
-    font-weight: 600;
+}
+
+@media (min-width: 800px) {
+
+    .category-heading {
+        font-size: 3em;
+    }
+
 }

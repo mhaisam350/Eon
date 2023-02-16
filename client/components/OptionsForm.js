@@ -2,8 +2,6 @@ import styles from '../styles/OptionsForm.module.scss';
 
 export default function OptionsForm ({ name, values, selectedOptions, optionsSet, quantitySet } ) {
 
-    // console.log(name);
-
     return (
 
         <fieldset>
@@ -33,6 +31,7 @@ export default function OptionsForm ({ name, values, selectedOptions, optionsSet
                             />
 
                             <span 
+                            
                                 className= {styles['radio-btn'] + " " + (name === 'Color' ? styles['height'] : "") }
                                 style={ name === 'Color' ? {backgroundColor: value} : {} }>
                                 

@@ -36,8 +36,17 @@
     cursor: pointer;
     margin-right: 1.5em;
     padding-bottom: 5px;
+    line-height: 1.5;
 }
 
 .height {
     height: 15px;
+}
+
+@media (max-width: 400px) {
+
+    .radio-btn {
+        margin-bottom: 2em;
+    }
+
 }
