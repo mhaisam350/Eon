@@ -10,7 +10,7 @@ export default function DisplayProduct( { product } ) {
 
     // console.log(product);
 
-    const price = product.variants[0].price.amount;
+    const price = product.priceRange.minVariantPrice.amount;
 
     const [hover, setHover] = useState(false);
 
@@ -20,7 +20,7 @@ export default function DisplayProduct( { product } ) {
 
             <Link href={`/products/${product.handle}`} className={styles['product-link']}>
 
-                <div className={styles['image-container']} style={ {backgroundImage: hover ? `url("${product?.images[1].src}")` : `url("${product?.images[0].src}")`} }></div>
+                <div className={styles['image-container']} style={ {backgroundImage: hover ? `url("${product?.images.edges[1].node.url}")` : `url("${product?.images.edges[0].node.url}")`} }></div>
 
                 <div className={'flex' + " " + styles['text-container']}>
 

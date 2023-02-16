@@ -4,7 +4,7 @@ import DisplayProduct from './DisplayProduct';
 
 export default function DisplaySubcategory( { products, productType } ) {
 
-    const subcategoryProducts = products.filter(product => product.productType === productType);
+    const subcategoryProducts = products.filter(product => product.node.productType === productType);
 
     // console.log(subcategoryProducts);
 
@@ -20,7 +20,7 @@ export default function DisplaySubcategory( { products, productType } ) {
 
                     return (
 
-                        <DisplayProduct product={product} key={index} />
+                        <DisplayProduct product={product.node} key={index} />
 
                     )
 

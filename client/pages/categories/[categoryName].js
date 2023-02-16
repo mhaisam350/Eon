@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 
 import styles from '../../styles/CategoryPage.module.scss';
 
@@ -7,47 +6,51 @@ import Header from "../../components/Header";
 import DisplaySubcategory from "../../components/DisplaySubcategory";
 import Footer from "../../components/Footer";
 
-import { client } from "../../lib/shopify";
+// import { client } from "../../lib/shopify";
 
-import { formatParam } from "../../utils";
+import { formatParam, storefront } from "../../utils";
 
-export default function CategoryPage({ products, categoryName }) {
+export default function CategoryPage({ category }) {
+
+    // console.log(category)
 
     const productTypes = [];
 
-    products.forEach(product => {
-        
-        if (!productTypes.includes(product.productType)) {
+    const categoryProducts = category.products.edges;
 
-            productTypes.push(product.productType);
+    // console.log(categoryProducts);
+
+    categoryProducts.forEach(product => {
+        
+        if (!productTypes.includes(product.node.productType)) {
+
+            productTypes.push(product.node.productType);
             
         };
 
     });
 
-    const category = formatParam(categoryName);
-
-    // console.log(productTypes);
+    const title = category.title;
 
     return (
 
         <>
 
             <Head>
-                <title>{ `${category} | Eon` }</title>
+                <title>{ `${title} | Eon` }</title>
             </Head>
 
             <Header />
 
             <section className={styles['subcategories-container']}>
 
-                <h1 className={styles['category-heading']}>{ category }</h1>
+                <h1 className={styles['category-heading']}>{ title }</h1>
                 
                 {productTypes?.map((productType, index) => {
 
                     return (
 
-                        <DisplaySubcategory products={products} productType={productType} key={index} />
+                        <DisplaySubcategory products={categoryProducts} productType={productType} key={index} />
 
                     )
 
@@ -63,23 +66,75 @@ export default function CategoryPage({ products, categoryName }) {
 
 }
 
-export const getServerSideProps = async ( { params } ) => {
+export async function getStaticPaths() {
 
-    const { categoryName } = params;
-
-    const categoriesData = await client.collection.fetchAllWithProducts();
-
-    const categories = JSON.parse(JSON.stringify(categoriesData));
-
-    const category = categories.find(category => category.handle === categoryName);
-
-    console.log(category);
+    const { data } = await storefront(`
+        {
+            collections(first: 20){
+                edges{
+                    node{
+                        handle
+                    }
+                }
+            }
+        }
+    `);
 
     return {
-        props: {
-            categoryName,
-            products: category.products,
-        },
+        paths: data.collections.edges.map((collection) => (
+
+            { params: { categoryName: collection.node.handle } }
+
+        )),
+        fallback: false
     };
 
 }
+
+export async function getStaticProps({ params }) {
+
+    // console.log(params.categoryName);
+
+    const { data } = await storefront(singleCollectionQuery, { collection: params.categoryName } );
+    const tes = 'asd'
+
+    return {
+        props: {
+            category: data.collection
+        },
+        revalidate: 60
+    };
+
+}
+
+const singleCollectionQuery = `
+query ProductsInCollection($collection: String!) {
+    collection(handle: $collection) {
+      handle
+      title
+      products(first: 10) {
+        edges {
+          node {
+            title
+            handle
+            tags
+            productType
+            priceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+            images(first: 2) {
+              edges {
+                node {
+                  url(transform: {maxWidth: 400})
+                  altText
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

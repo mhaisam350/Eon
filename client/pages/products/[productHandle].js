@@ -187,11 +187,34 @@ export default function ProductPage( { product } ) {
 
 }
 
-export const getServerSideProps = async ( { params } ) => {
+export async function getStaticPaths() {
 
-    const { productHandle } = params;
+    const { data } = await storefront(`
+        {
+            products(first: 20) {
+                edges {
+                    node {
+                        handle
+                    }
+                }
+            }
+        }
+    `);
 
-    const { data } = await storefront(singleProductQuery, { handle: productHandle } );
+    return {
+        paths: data.products.edges.map((product) => (
+
+            { params: { productHandle: product.node.handle } }
+
+        )),
+        fallback: false
+    };
+
+}
+
+export const getStaticProps = async ( { params } ) => {
+
+    const { data } = await storefront(singleProductQuery, { handle: params.productHandle } );
 
     // console.log(data);
 
@@ -199,6 +222,7 @@ export const getServerSideProps = async ( { params } ) => {
         props: {
             product: data.product,
         },
+        revalidate: 60
     };
 
 }
