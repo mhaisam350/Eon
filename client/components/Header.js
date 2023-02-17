@@ -48,7 +48,7 @@ const Header = () => {
 
         if (Math.sign(currentPosition - initialScrollPosition) === 1) {
 
-            setHeaderPosition('translateY(-5em)');
+            setHeaderPosition('translateY(-100%)');
 
             setInitialScrollPosition(window.scrollY);
 
@@ -87,7 +87,7 @@ const Header = () => {
         <nav className={'flex' + " " + styles['nav']}>
 
             <span >
-                <Link  href='/'><img className={styles.logo} src='/eon.png' /> </Link>
+                <Link  href='/'><img className={styles.logo} src='/emotors.png' /> </Link>
             </span>
 
             <menu className={'flex' + " " + styles['header-menu'] + " " + navToggleClass}>

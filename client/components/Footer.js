@@ -13,7 +13,7 @@ const Footer = () => {
         
         <footer className={'flex' + " " + styles['footer']}>
 
-            <Link href='/' className={styles['footer-logo']}>LOGO</Link>
+            <Link href='/'><img className={styles['footer-logo']} src='/emotors.png' /></Link>
 
             <ul className={'flex' + " " + styles['footer-links']}>
 

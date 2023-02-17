@@ -6,12 +6,12 @@
     align-items: center;
     padding: 2em 0;
     text-align: center;
-    background-color: #000;
-    height: 270px;
+    background-color: #0e0e0e;
+    height: 450px;
 }
 
 .footer-logo {
-    color: #fff;
+    width: 100px;
 }
 
 .footer-links {
@@ -58,6 +58,14 @@
 }
 
 @media (min-width: 800px) {
+
+    .footer {
+        height: 400px;
+    }
+
+    .footer-logo {
+        width: 150px;
+    }
 
     .footer-links {
         flex-direction: row;
