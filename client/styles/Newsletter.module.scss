@@ -35,6 +35,12 @@
     background-color: $yellow;
 }
 
+.newsletter-btn:hover,
+.newsletter-btn:focus {
+    box-shadow: inset 0 0 0 2em #000;
+    color: #fff;
+}
+
 @media (min-width: 800px) {
 
     .newsletter {

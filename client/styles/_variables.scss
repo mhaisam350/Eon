@@ -33,4 +33,81 @@ $koho: 'KoHo', sans-serif;
     border-radius: 5px;
     padding: 0.5em 2.5em;
     cursor: pointer;
+    transition: 0.35s ease;
+}
+
+@keyframes fadeInHeading {
+
+    0% { opacity:0; }
+
+    80% { opacity:0; }
+
+    100% { opacity:1; }
+
+}
+
+@-webkit-keyframes fadeInHeading {
+
+    0% { opacity:0; }
+
+    80% { opacity:0; }
+
+    100% { opacity:1; }
+
+}
+
+@keyframes fadeInSubheading {
+
+    0% { opacity:0; }
+
+    60% { opacity:0; }
+
+    100% { opacity:1; }
+
+}
+
+@-webkit-keyframes fadeInSubheading {
+
+    0% { opacity:0; }
+
+    60% { opacity:0; }
+
+    100% { opacity:1; }
+
+}
+
+@keyframes fadeInBtn {
+
+    0% { 
+        opacity:0;
+        transform: translateX(-100%);
+    }
+
+    85% { 
+        opacity:0; 
+    }
+
+    100% { 
+        opacity:1; 
+        transform: translateX(0);
+    }
+
+}
+
+@-webkit-keyframes fadeInBtn {
+
+    0% { 
+        opacity:0;
+        transform: translateX(-100%);
+    }
+
+    85% { 
+        opacity:0; 
+    }
+
+    100% { 
+        opacity:1; 
+        transform: translateX(0);
+    }
+
 }

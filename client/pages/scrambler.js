@@ -9,7 +9,7 @@ import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faAnglesRight, faGasPump, faGaugeSimpleHigh } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faAnglesRight, faGasPump, faGaugeSimpleHigh, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Scrambler() {
 
@@ -48,7 +48,7 @@ export default function Scrambler() {
     <>
     
         <Head>
-            <title>Scramber | Eon Motors</title>
+            <title>Scrambler | Eon Motors</title>
         </Head>
 
         <Header />
@@ -61,7 +61,7 @@ export default function Scrambler() {
 
                     <h2 className={styles['hero-subheading']}>A New Chapter</h2>
 
-                    <h1 className={styles['hero-heading']}>Scrambler</h1>
+                    <h1 className={styles['hero-heading']}>The Scrambler</h1>
 
                     <button className={styles['hero-btn']}>Order Now</button>
 
@@ -140,7 +140,7 @@ export default function Scrambler() {
                 
                 </div>
 
-                <button className={styles['features-btn']} onClick={(e) => setOverlayToggled(true)}>See features</button>
+                <button className={styles['features-btn']} onClick={(e) => setOverlayToggled(true)}>See features <FontAwesomeIcon className={styles['features-icon']} icon={faArrowRight} /></button>
 
                 <button className={styles['overlay-btn'] + " " + overlayBtnDisplay} onClick={(e) => setOverlayToggled(false)}><FontAwesomeIcon className={styles['close-icon']} icon={faCircleXmark} /></button>
 

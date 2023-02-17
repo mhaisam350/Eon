@@ -7,8 +7,6 @@ import Header from '../components/Header';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 
-import { client } from '../lib/shopify';
-
 export default function Home() {
 
   return (
@@ -29,7 +27,7 @@ export default function Home() {
 
           <h1 className={styles['hero-heading']}>The Scrambler</h1>
 
-          <button className={styles['hero-btn']}>Discover</button>
+          <Link href='/scrambler'><button className={styles['hero-btn']}>Discover</button></Link>
           
         </div>
 
@@ -76,15 +74,3 @@ export default function Home() {
   )
   
 }
-
-// export const getStaticProps = async () => {
-
-//   const products = await client.product.fetchAll();
-
-//   return {
-//     props: {
-//       products: JSON.parse(JSON.stringify(products)),
-//     }
-//   };
-
-// };

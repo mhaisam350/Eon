@@ -21,6 +21,7 @@
     font-family: $anton;
     font-size: 3.7em;
     text-transform: uppercase;
+    animation: 2s ease-out 0s 1 fadeInHeading;
 }
 
 .hero-subheading {
@@ -29,6 +30,7 @@
     text-transform: uppercase;
     color: $yellow;
     font-weight: 600; 
+    animation: 1s ease-out 0s 1 fadeInSubheading;
 }
 
 .hero-btn {
@@ -36,7 +38,14 @@
     background-color: transparent;
     color: $yellow;
     border-color: $yellow;
-    margin-top: 5em;
+    margin-top: 2em;
+    animation: 2.5s ease-out 0s 1 fadeInBtn
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+    box-shadow: inset 0 0 0 2em $yellow;
+    color: #000;
 }
 
 .hero-image-container {
@@ -65,7 +74,7 @@
 
 .description-heading {
     font-family: $anton;
-    font-size: 2.2em;
+    font-size: 3em;
     text-transform: uppercase;
 }
 
@@ -100,40 +109,47 @@
     background-color: #fff;
 }
 
-// Banner section
-.banner {
-    margin: $vertical-margin 0;
+.description-btn:hover,
+.description-btn:focus {
+    box-shadow: inset 0 0 0 2em #000;
     color: #fff;
-    background-color: rgb(150, 32, 32);
-    position: relative;
-    height: 500px;
 }
 
-.banner-flex {
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 0;
-}
 
-.banner-text {
-    padding: 8em 1em 4em;
-}
+// Banner section
+// .banner {
+//     margin: $vertical-margin 0;
+//     color: #fff;
+//     background-color: rgb(150, 32, 32);
+//     position: relative;
+//     height: 500px;
+// }
 
-.banner-heading {
-    font-family: $anton;
-    font-size: 2.2em;
-    text-transform: uppercase;
-}
+// .banner-flex {
+//     flex-direction: column;
+//     align-items: center;
+//     position: absolute;
+//     top: 0;
+// }
 
-.banner-paragraph {
-    line-height: 1.5;
-    margin: 1em 0;
-}
+// .banner-text {
+//     padding: 8em 1em 4em;
+// }
 
-.banner-image {
-    width: 90%;
-}
+// .banner-heading {
+//     font-family: $anton;
+//     font-size: 2.2em;
+//     text-transform: uppercase;
+// }
+
+// .banner-paragraph {
+//     line-height: 1.5;
+//     margin: 1em 0;
+// }
+
+// .banner-image {
+//     width: 90%;
+// }
 
 // Features section
 .features {
@@ -158,7 +174,7 @@
 .features-heading {
     font-family: $anton;
     text-transform: uppercase;
-    font-size: 2.5em;
+    font-size: 3em;
 }
 
 .features-subheading {
@@ -174,6 +190,17 @@
     color: $yellow;
     border-color: $yellow;
     margin-top: 2em;
+    animation: 2.5s ease-out 0s 1 fadeInBtn
+}
+
+.features-btn:hover,
+.features-btn:focus {
+    box-shadow: inset 0 0 0 2em $yellow;
+    color: #000;
+}
+
+.features-icon {
+    margin-left: 0.5em;
 }
 
 .features-overlay {
@@ -218,7 +245,7 @@
 }
 
 .features-overlay-hide {
-    transform: translateY(100vh);
+    transform: translateY(100%);
 }
 
 .feature {
@@ -351,6 +378,10 @@
 
 @media (max-width: 400px) {
 
+    .description-heading, .features-heading {
+        font-size: 2.5em
+    }
+
     .specs-list {
         font-size: 0.8em;
     }
@@ -373,9 +404,9 @@
         font-size: 7em;
     }
     
-    .hero-subheading {
-        font-size: 1.2em;
-    }
+    // .hero-subheading {
+    //     font-size: 1.2em;
+    // }
 
     .hero-image {
         width: 800px;
@@ -392,10 +423,10 @@
     }
 
     // Banner section
-    .banner {
-        height: 400px;
-        margin: 15em 0;
-    }
+    // .banner {
+    //     height: 400px;
+    //     margin: 15em 0;
+    // }
 
     .banner-flex {
         flex-direction: row;
@@ -416,10 +447,6 @@
     }
 
     // Features section
-    // .features {
-    //     margin-top: 25em;
-    // }
-
     .features-content {
         flex-direction: row;
         justify-content: space-between;
@@ -446,7 +473,7 @@
     }
 
     .features-overlay-hide {
-        transform: translateX(100vw);
+        transform: translateX(100%);
     }
 
     .feature {
@@ -524,11 +551,19 @@
     }
 
     // Description section
+    .description-heading {
+        font-size: 5em;
+    }
+
     .description-paragraph {
         width: 70%;
     }
 
     // Feature section
+    .features-heading {
+        font-size: 5em;
+    }
+
     .feature-text {
         margin-left: 7em;
     }
