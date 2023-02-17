@@ -4,7 +4,7 @@
 // Hero section
 .hero {
     height: 100vh;
-    background-image: url('/home/hero-med.jpg');
+    background-image: url('/static/images/hero-med.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -81,17 +81,17 @@
 }
 
 #lifestyle-article {
-    background-image: url('/home/lifestyle.jpg');
+    background-image: url('/static/images/lifestyle.jpg');
 }
 
 #apparel-article {
-    background-image: url('/home/apparel.jpg');
+    background-image: url('/static/images/apparel.jpg');
 }
 
 // Accessories section
 .accessories {
     height: 100vh;
-    background-image: url('/home/accessories.jpg');
+    background-image: url('/static/images/accessories.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

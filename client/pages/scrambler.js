@@ -71,7 +71,7 @@ export default function Scrambler() {
 
             <div className={styles['hero-image-container']}>
 
-                <img className={styles['hero-image']} src='/scrambler/scrambler-red.png' />
+                <img className={styles['hero-image']} src={'/static/images/scrambler-red.png'} alt='Featured motorcycle, the scrambler' />
 
             </div>
 
@@ -108,25 +108,6 @@ export default function Scrambler() {
             <button className={styles['description-btn']}>Learn More</button>
 
         </section>
-
-        {/* <section className={styles['banner']}>
-
-            <div className={'flex' + " " + styles['banner-flex']}>
-
-                <div className={styles['banner-text']}>
-
-                    <h2 className={styles['banner-heading']}>All About You</h2>
-
-                    <p className={styles['banner-paragraph']}>Donec felis ligula, porttitor eget mauris vulputate, sollicitudin interdum magna. 
-                    Vestibulum mollis fermentum faucibus.</p>
-
-                </div>
-
-                <img className={styles['banner-image']} src='/scrambler/banner.jpg' />
-
-            </div>
-
-        </section> */}
 
         <section className={'flex' + " " + styles['features']}>
 
@@ -217,9 +198,6 @@ export default function Scrambler() {
 
                 </article>
                 
-
-                {/* <span className={styles['scroll-text']}><FontAwesomeIcon className={styles['scroll-icon']} icon={faAnglesLeft} /> Scroll <FontAwesomeIcon className={styles['scroll-icon']} icon={faAnglesRight} /> </span> */}
-
             </section>
 
         </section>
@@ -228,7 +206,7 @@ export default function Scrambler() {
 
             <div className={'flex' + " " + styles['specs-flex']}>
 
-                <img className={styles['specs-image']} src='/scrambler/specs.jpg' />
+                <img className={styles['specs-image']} src={'/static/images/specs.jpg'} alt='Stunt rider on bike' />
 
                 <section className={styles['specs-content']}>
 

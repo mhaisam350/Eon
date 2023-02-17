@@ -87,7 +87,7 @@ const Header = () => {
         <nav className={'flex' + " " + styles['nav']}>
 
             <span >
-                <Link  href='/'><img className={styles.logo} src='/emotors.png' /> </Link>
+                <Link  href='/'><img className={styles.logo} src={'/static/images/EMotors.png'} alt='Logo picture of bike' /> </Link>
             </span>
 
             <menu className={'flex' + " " + styles['header-menu'] + " " + navToggleClass}>

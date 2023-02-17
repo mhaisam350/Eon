@@ -3,7 +3,7 @@
 // Hero section
 .hero-text-container {
     height: 90vh;
-    background-image: url('/Scrambler/bllack.jpg');
+    background-image: url('/static/images/black-hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -115,47 +115,11 @@
     color: #fff;
 }
 
-
-// Banner section
-// .banner {
-//     margin: $vertical-margin 0;
-//     color: #fff;
-//     background-color: rgb(150, 32, 32);
-//     position: relative;
-//     height: 500px;
-// }
-
-// .banner-flex {
-//     flex-direction: column;
-//     align-items: center;
-//     position: absolute;
-//     top: 0;
-// }
-
-// .banner-text {
-//     padding: 8em 1em 4em;
-// }
-
-// .banner-heading {
-//     font-family: $anton;
-//     font-size: 2.2em;
-//     text-transform: uppercase;
-// }
-
-// .banner-paragraph {
-//     line-height: 1.5;
-//     margin: 1em 0;
-// }
-
-// .banner-image {
-//     width: 90%;
-// }
-
 // Features section
 .features {
     // margin-top: 120%;
     height: 100vh;
-    background-image: url('/Scrambler/features.jpg');
+    background-image: url('/static/images/features.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -295,15 +259,15 @@
 }
 
 #feature-1 {
-    background-image: url('/Scrambler/ride.jpg');
+    background-image: url('/static/images/ride.jpg');
 }
 
 #feature-2 {
-    background-image: url('/Scrambler/LED.jpg');
+    background-image: url('/static/images/LED.jpg');
 }
 
 #feature-3 {
-    background-image: url('/Scrambler/wheel.jpg');
+    background-image: url('/static/images/wheel.jpg');
 }
 
 .overlay-btn {
