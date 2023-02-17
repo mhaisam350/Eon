@@ -9,7 +9,7 @@ import Cart from "./Cart";
 
 import styles from '../styles/Sidebar.module.scss';
 
-export default function Sidebar() {
+export default function Sidebar( { theme } ) {
 
     const { cartToggled, setCartToggled } = useCartContext();
 
@@ -36,7 +36,7 @@ export default function Sidebar() {
 
         <>
         
-            <button onClick={() => setCartToggled(!cartToggled)} className={styles['icon'] + " " + iconMargin}><FontAwesomeIcon icon={cartToggled ? faXmark : faCartShopping} /></button>
+            <button onClick={() => setCartToggled(!cartToggled)} className={styles['icon'] + " " + iconMargin} style={ { color: (theme !== 'Dark') || (cartToggled) ? '#000' : '#fff' } }><FontAwesomeIcon icon={cartToggled ? faXmark : faCartShopping} /></button>
 
             <section onClick={overlayControl}  className={styles['overlay-container'] + " " + overlayDisplay} id={'overlay-container'}>
 
