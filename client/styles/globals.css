@@ -27,6 +27,14 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+html,
+body,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
 	line-height: 1;    
   	font-family: 'Poppins', sans-serif;
@@ -63,6 +71,7 @@ button,
 select,
 li,
 span,
+img,
 a {
     -webkit-tap-highlight-color: transparent;
 }

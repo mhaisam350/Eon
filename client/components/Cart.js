@@ -153,7 +153,7 @@ export default function Cart() {
 
                                 <article key={index} className={'flex' + " " + styles['product']}>
 
-                                    <Link href={`/store/products/${item.merchandise.product.handle}`}>
+                                    <Link href={`/products/${item.merchandise.product.handle}`}>
                                         
                                         <img src={item.merchandise.image?.url} className={styles['product-img']} />
                                         
@@ -161,7 +161,7 @@ export default function Cart() {
                                 
                                     <div className={styles['product-details']}>
 
-                                        <Link href={`/store/products/${item.merchandise.product.handle}`}>
+                                        <Link href={`/products/${item.merchandise.product.handle}`}>
                                             
                                             <h3 className={styles['product-name']}>{item.merchandise.product.title}</h3>
                                             
@@ -198,7 +198,6 @@ export default function Cart() {
 
                     <section className={styles['static-container']}>
 
-                        {/* {console.log(cost)} */}
                         <p className={styles['subtotal']}>Subtotal: {cost.subtotalAmount.amount + ' ' + cost.subtotalAmount.currencyCode}</p>
                         <p className={styles['subtotal']}>Taxes: {cost.totalTaxAmount.amount + ' ' + cost.totalTaxAmount.currencyCode}</p>
                         <p className={styles['grand-total']}>Grand Total: {cost.totalAmount.amount + ' ' + cost.totalAmount.currencyCode}</p>

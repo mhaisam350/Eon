@@ -38,7 +38,7 @@ export default function Sidebar( { theme } ) {
         
             <button onClick={() => setCartToggled(!cartToggled)} className={styles['icon'] + " " + iconMargin} style={ { color: (theme !== 'Dark') || (cartToggled) ? '#000' : '#fff' } }><FontAwesomeIcon icon={cartToggled ? faXmark : faCartShopping} /></button>
 
-            <section onClick={overlayControl}  className={styles['overlay-container'] + " " + overlayDisplay} id={'overlay-container'}>
+            <section onClick={overlayControl} className={styles['overlay-container'] + " " + overlayDisplay} id={'overlay-container'}>
 
                 <Cart />
 
