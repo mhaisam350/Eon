@@ -25,8 +25,6 @@ export default function Cart() {
 
     const { cartId, setCartId, cartToggled } = useCartContext();
 
-    // console.log(products);
-
     // Create or load existing cart from local storage
     useEffect(() => {
 
@@ -138,7 +136,7 @@ export default function Cart() {
 
             }
 
-            {products.length > 0 && Object.keys(cost).length > 0 && cost.totalTaxAmount ? (
+            {products.length > 0 && Object.keys(cost).length > 0 ? (
                 
                 <div className={styles['cart-subcontainer']}>
 
@@ -199,7 +197,13 @@ export default function Cart() {
                     <section className={styles['static-container']}>
 
                         <p className={styles['subtotal']}>Subtotal: {cost.subtotalAmount.amount + ' ' + cost.subtotalAmount.currencyCode}</p>
-                        <p className={styles['subtotal']}>Taxes: {cost.totalTaxAmount.amount + ' ' + cost.totalTaxAmount.currencyCode}</p>
+
+                        { cost.totalTaxAmount && 
+
+                            <p className={styles['subtotal']}>Taxes: {cost.totalTaxAmount?.amount + ' ' + cost.totalTaxAmount.currencyCode}</p>
+
+                        }
+
                         <p className={styles['grand-total']}>Grand Total: {cost.totalAmount.amount + ' ' + cost.totalAmount.currencyCode}</p>
 
                         <button className={styles['cart-btn']} id={styles['checkout-btn']}>Checkout</button>

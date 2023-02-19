@@ -19,7 +19,7 @@ import styles from '../../styles/ProductPage.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faSquareInstagram, faSquareFacebook, faSquarePinterest, faSquareTwitter, faSquareReddit } from '@fortawesome/free-brands-svg-icons'; 
+import { faSquareFacebook, faSquarePinterest, faSquareTwitter, faSquareReddit } from '@fortawesome/free-brands-svg-icons'; 
 
 export default function ProductPage( { product } ) {
 
