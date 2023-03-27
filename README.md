@@ -1,6 +1,20 @@
 # Eon
 
- Eon is a demo ecommerce business built with NextJS and set up with Shopify's Storefront API.
+Eon is a demo headless ecommerce business built with NextJS and set up with Shopify's Storefront API.
 
- ## Features
- - Users can add products to cart and checkout, as a guest
+## Demo
+https://eon-motors.vercel.app/
+ 
+## Technologies
+
+- React
+- NextJS
+- SCSS
+
+## Setup
+
+```
+$ cd ../Eon/client
+$ npm install
+$ npm run dev
+```
