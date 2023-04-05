@@ -97,15 +97,15 @@ const Header = () => {
                 </li>
 
                 <li className={styles['menu-item']}>
-                    <Link href='/categories/bike-accessories' className={styles['header-link']} style={{"--bg": headerTheme !== 'Dark' ? '#000' : '#fff'}}>Accessories</Link>
+                    <Link href='/categories/bike-accessories' onClick={() => setMobileToggleNav(false)} className={styles['header-link']} style={{"--bg": headerTheme !== 'Dark' ? '#000' : '#fff'}}>Accessories</Link>
                 </li>
 
                 <li className={styles['menu-item']}>
-                    <Link href='/categories/apparel' className={styles['header-link']} style={{"--bg": headerTheme !== 'Dark' ? '#000' : '#fff'}}>Apparel</Link>
+                    <Link href='/categories/apparel' onClick={() => setMobileToggleNav(false)} className={styles['header-link']} style={{"--bg": headerTheme !== 'Dark' ? '#000' : '#fff'}}>Apparel</Link>
                 </li>
 
                 <li className={styles['menu-item']}>
-                    <Link href='/categories/lifestyle' className={styles['header-link']} style={{"--bg": headerTheme !== 'Dark' ? '#000' : '#fff'}}>Lifestyle</Link>
+                    <Link href='/categories/lifestyle' onClick={() => setMobileToggleNav(false)} className={styles['header-link']} style={{"--bg": headerTheme !== 'Dark' ? '#000' : '#fff'}}>Lifestyle</Link>
                 </li>
 
             </menu>
@@ -114,7 +114,7 @@ const Header = () => {
                 
                 <Sidebar theme={headerTheme} />
                 
-                <button onClick={ () => setMobileToggleNav(!toggleMobileNav)} className={styles['mobile-toggle']} style={{color: (headerTheme !== 'Dark') || (toggleMobileNav) ? '#000' : '#fff'}}><FontAwesomeIcon icon={toggleMobileNav ? faSquareXmark : faBars} /></button>
+                <button onClick={() => setMobileToggleNav(!toggleMobileNav)} className={styles['mobile-toggle']} style={{color: (headerTheme !== 'Dark') || (toggleMobileNav) ? '#000' : '#fff'}}><FontAwesomeIcon icon={toggleMobileNav ? faSquareXmark : faBars} /></button>
 
             </div>
 
